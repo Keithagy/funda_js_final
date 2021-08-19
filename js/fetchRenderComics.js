@@ -1,3 +1,4 @@
+// Determines comic IDs to fetch based on app state and populates then in order
 const renderInOrder = async (firstComicDisplayed, comicsOnPage) => {
     const IDsToFetch = [firstComicDisplayed];
     for (let i = 0; i < comicsOnPage - 1; i++) {
@@ -11,6 +12,7 @@ const renderInOrder = async (firstComicDisplayed, comicsOnPage) => {
     fetchAndArrange(IDsToFetch).then(populateInOrder);
 };
 
+// Takes a list of comic IDs and initiates GET API calls on its elements
 const fetchAndArrange = async (IDsToFetch) => {
     const fetchedComics = [];
     for (const i of IDsToFetch) {
@@ -20,6 +22,7 @@ const fetchAndArrange = async (IDsToFetch) => {
     return fetchedComics;
 };
 
+// Returns a fulfilled promise to be further handled by an outer function
 const fetchComic = async (comicID) => {
     const resp = await fetch(
         `https://intro-to-js-playground.vercel.app/api/xkcd-comics/${comicID}`
@@ -28,6 +31,7 @@ const fetchComic = async (comicID) => {
     return comicInfo;
 };
 
+// Takes a list of fetched comic data and initiates adding each to the DOM 
 const populateInOrder = (fetchedComics) => {
     const comicStrip = document.querySelector(".comicStrip");
     comicStrip.innerHTML = "";
@@ -36,6 +40,7 @@ const populateInOrder = (fetchedComics) => {
     }
 };
 
+// Calls prepareComic on fetched comic info and adds to comicStrip div on DOM
 const populate = (comicInfo) => {
     const { title, img: imgSource } = comicInfo;
 
@@ -44,6 +49,7 @@ const populate = (comicInfo) => {
     comicStrip.appendChild(newComic);
 };
 
+// Accepts title and imgSource fields in comicInfo, structures and returns a formatted DOM node for one comic
 const prepareComic = (title, imgSource) => {
     // Instantiate new comicContainer
     const newComicContainer = document.createElement("div");

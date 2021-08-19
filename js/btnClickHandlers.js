@@ -1,3 +1,5 @@
+
+// Click Handler for 'Next' button
 const handleNextNav = () => {
     firstComicDisplayed += comicsOnPage;
     if (firstComicDisplayed > LASTPAGE) {
@@ -5,6 +7,8 @@ const handleNextNav = () => {
     }
     executeRenderTick(firstComicDisplayed, comicsOnPage);
 };
+
+// Click Handler for 'Previous' button
 const handlePrevNav = () => {
     firstComicDisplayed -= comicsOnPage;
     if (firstComicDisplayed < FIRSTPAGE) {
@@ -13,11 +17,13 @@ const handlePrevNav = () => {
     executeRenderTick(firstComicDisplayed, comicsOnPage);
 };
 
+// Click Handler for 'Random' button
 const handleRandNav = () => {
     firstComicDisplayed = Math.floor(Math.random() * (LASTPAGE - 1));
     executeRenderTick(firstComicDisplayed, comicsOnPage);
 };
 
+// Form Submit Handler for 'Comics on page' field
 const handleResizePage = (e) => {
     e.preventDefault();
     const comicsOnPageForm = document.querySelector("#comicsOnPage");
@@ -37,6 +43,7 @@ const handleResizePage = (e) => {
     executeRenderTick(firstComicDisplayed, comicsOnPage);
 };
 
+// Form Submit Handler for 'Set starting comic' field
 const handleComicSkip = (e) => {
     e.preventDefault();
     const skipToComicControl = document.querySelector(".skipToComicControl");
