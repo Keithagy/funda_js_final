@@ -1,0 +1,51 @@
+.TitleHeader{
+    /* border: 1px red solid; */
+    text-align: center;
+}
+
+.navBar{
+    /* border: 1px blue solid; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.comicStrip{
+    /* border: 1px green solid; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.comicContainer{
+    /* border: 1px orange solid; */
+    width: 30%;
+    height: 100%;
+}
+
+.comicTitleContainer{
+    /* border: 1px blue solid; */
+    width: 100%;
+    height: inherit;
+}
+
+.comicImageContainer{
+    /* border: 1px green solid; */
+    width: 100%;
+    height: inherit;
+}
+
+.comicTitle{
+    /* border: 1px yellow solid; */
+    width: 100%;
+    text-align: center;
+}
+
+.comicImage{
+    /* border: 1px pink solid; */
+    width: 100%;
+}
+
+
+
+
+

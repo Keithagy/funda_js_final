@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Fundamentals in JS: xkcd Reader</title>
+        <meta name="description" content="Read comics, feel good." />
+        <meta name="author" content="KA" />
+
+        <link rel="stylesheet" href="./css/styles.css" />
+    </head>
+
+    <body>
+        <div class="TitleHeader">
+            <h1>My xkcd reader</h1>
+        </div>
+        <div class="navBar">
+            <div class="relativeControls">
+                <div>Use buttons to navigate:</div>
+                <button onclick="handlePrevNav()">Previous</button>
+                <button onclick="handleRandNav()">Random</button>
+                <button onclick="handleNextNav()">Next</button>
+                <span style="color: transparent">_____</span>
+                <form class="pageSizeControl" style="display: inline">
+                    <label for="comicsOnPage">Comics on page:</label>
+                    <select name="comicsOnPage" id="comicsOnPage">
+                        <option value="1">1</option>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="7">7</option>
+                    </select>
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+
+            <div class="skipToComic">
+                <div>Set starting comic (1 - 2475):</div>
+                <form class="skipToComicForm" style="display: inline">
+                    <input class="skipToComicControl" type="number" />
+                    <button>Skip to comic</button>
+                </form>
+            </div>
+        </div>
+        <!-- <div class="loadingModalHidden">LOADING MODAL</div> -->
+        <div class="comicStrip"></div>
+        <script src="./js/btnClickHandlers.js"></script>
+        <script src="./js/domManagement.js"></script>
+        <script src="./js/fetchRenderComics.js"></script>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
