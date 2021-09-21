@@ -13,25 +13,16 @@ const renderInOrder = async (firstComicDisplayed, comicsOnPage) => {
 };
 
 // Takes a list of comic IDs and initiates GET API calls on its elements
-const fetchAndArrange = async (IDsToFetch) => {
-    const fetchedComics = [];
-    for (const i of IDsToFetch) {
-        const fetchedComicInfo = await fetchComic(i);
-        fetchedComics.push(fetchedComicInfo);
-    }
-    return fetchedComics;
-};
+const fetchAndArrange = async (IDsToFetch) =>
+    Promise.all(IDsToFetch.map((id) => fetchComic(id)));
 
 // Returns a fulfilled promise to be further handled by an outer function
-const fetchComic = async (comicID) => {
-    const resp = await fetch(
+const fetchComic = async (comicID) =>
+    fetch(
         `https://intro-to-js-playground.vercel.app/api/xkcd-comics/${comicID}`
-    );
-    const comicInfo = await resp.json();
-    return comicInfo;
-};
+    ).then((resp) => resp.json());
 
-// Takes a list of fetched comic data and initiates adding each to the DOM 
+// Takes a list of fetched comic data and initiates adding each to the DOM
 const populateInOrder = (fetchedComics) => {
     const comicStrip = document.querySelector(".comicStrip");
     comicStrip.innerHTML = "";
