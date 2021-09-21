@@ -1,5 +1,5 @@
 // App state
-const LASTPAGE = 2475;
+const LASTPAGE = 2518;
 const FIRSTPAGE = 1;
 
 let firstComicDisplayed = 1;
