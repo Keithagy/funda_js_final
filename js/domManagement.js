@@ -14,6 +14,7 @@ const bindFormValues = () => {
 };
 
 // Called in main.js and event handlers, refreshes interface to reflect state
+
 const executeRenderTick = (firstComicDisplayed, comicsOnPage) => {
     showLoading();
     renderInOrder(firstComicDisplayed, comicsOnPage); // See fetchRenderComics.js
