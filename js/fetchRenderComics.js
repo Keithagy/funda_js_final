@@ -24,11 +24,8 @@ const fetchComic = async (comicID) =>
 
 // Takes a list of fetched comic data and initiates adding each to the DOM
 const populateInOrder = (fetchedComics) => {
-    const comicStrip = document.querySelector(".comicStrip");
-    comicStrip.innerHTML = "";
-    for (const comic of fetchedComics) {
-        populate(comic);
-    }
+    document.querySelector(".comicStrip").innerHTML = '';
+    fetchedComics.forEach(populate)
 };
 
 // Calls prepareComic on fetched comic info and adds to comicStrip div on DOM
